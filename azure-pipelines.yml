@@ -9,28 +9,28 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+# steps:
+# - task: Maven@3
+#   inputs:
+#     mavenPomFile: 'pom.xml'
+#     mavenOptions: '-Xmx3072m'
+#     javaHomeOption: 'JDKVersion'
+#     jdkVersionOption: '1.8'
+#     jdkArchitectureOption: 'x64'
+#     publishJUnitResults: true
+#     testResultsFiles: '**/surefire-reports/TEST-*.xml'
+#     goals: 'package'
 
 
-# jobs:
-# - deployment: VMDeploy
-#   displayName: Deploy to VM
-#   environment: 
-#    name: Semana1
-#    resourceName: semana2
-#    resourceType: virtualMachine
-#   strategy:
-#      runOnce:
-#         deploy:   
-#           steps:
-#             - script: echo "Hello world"
+jobs:
+- deployment: VMDeploy
+  displayName: Deploy to VM
+  environment: 
+   name: Francisco_Valdes_S2
+   resourceName: Francisco
+   resourceType: virtualMachine
+  strategy:
+     runOnce:
+        deploy:   
+          steps:
+            - script: echo "Hello world"
